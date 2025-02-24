@@ -3,7 +3,9 @@
 export default function Page() {
   return (
     <div>
-      page.tsx
+      <h2 className="text-3xl font-bold underline text-orange-600">
+        Hello, Next.js!
+      </h2>
     </div>
   );
 }

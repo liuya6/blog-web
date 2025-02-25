@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import "../styles/globals.css";
+import "@/styles/globals.css";
+import "@/styles/icon.css";
 
 import MHeader from "../components/features/Header";
 

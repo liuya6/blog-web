@@ -10,7 +10,8 @@ export default {
   theme: {
     extend: {
       height: {
-        nav: "102px", // 自定义高度 token
+        nav: "102px", // 自定义高度
+        search: "50px",
       },
       maxWidth: {
         content: "1102px", // 使用自定义名称
@@ -58,6 +59,9 @@ export default {
           "3": "hsl(var(--chart-3))",
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
+        },
+        gray: {
+          666: "#666666",
         },
       },
       borderRadius: {

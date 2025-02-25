@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <MHeader />
-        <div className={`mx-auto w-96`}>{children}</div>
+        <div className={`mx-auto max-w-content`}>{children}</div>
       </body>
     </html>
   );

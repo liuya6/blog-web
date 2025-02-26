@@ -7,6 +7,9 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  corePlugins: {
+    boxSizing: true, // 确保启用 (默认值)
+  },
   theme: {
     extend: {
       height: {

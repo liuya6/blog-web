@@ -1,11 +1,14 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 
 import { navigation } from "./constants";
 
-const navLink = cva("flex items-center px-2 py-1 transition-colors", {
+const navLink = cva("flex items-center px-4 transition-colors", {
   variants: {
     variant: {
       default: "text-gray-600 hover:text-blue-500",
@@ -29,21 +32,20 @@ const dropdownMenu = cva("absolute top-full left-0 w-48 pt-2", {
 const headerStyles = {
   container: "h-nav flex items-center",
   content: "flex items-center w-full justify-between",
-  menu: "hidden md:flex items-center",
+  menu: "hidden md:flex items-center text-sm text-gray-666",
 };
 
 export function Nav() {
+  const pathname = usePathname();
+
+  console.log(pathname, "pathname");
+
   return (
     <nav className={headerStyles.container}>
       <div className={headerStyles.content}>
         {/* 品牌 Logo */}
         <Link href="/">
-          <Image
-            src="/img/lyq.png"
-            width="115"
-            height="34"
-            alt="lyq的博客"
-          ></Image>
+          <Image src="/img/lyq.png" width="115" height="34" alt="lyq的博客" />
         </Link>
 
         {/* 导航菜单 */}
@@ -51,7 +53,13 @@ export function Nav() {
           {navigation.map((item) => (
             <div key={item.name} className="relative group">
               {item.href ? (
-                <Link href={item.href} className={navLink()}>
+                <Link
+                  href={item.href}
+                  className={cn(
+                    navLink(),
+                    pathname === item.href ? "text-primary font-bold" : "",
+                  )}
+                >
                   {item.name}
                 </Link>
               ) : (

@@ -1,7 +1,7 @@
 export type NavigationItem = {
-  name: string;
+  title: string;
   href?: string;
-  submenu?: NavigationItem[];
+  submenu?: (NavigationItem & { img?: string; description?: string })[];
 };
 
 export interface NavigationListProps {

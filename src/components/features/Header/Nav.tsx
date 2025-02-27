@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 // import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 
@@ -38,10 +37,6 @@ const headerStyles = {
 };
 
 export function Nav() {
-  const pathname = usePathname();
-
-  console.log(pathname, "pathname");
-
   return (
     <nav className={headerStyles.container}>
       <div className={headerStyles.content}>

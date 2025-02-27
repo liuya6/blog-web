@@ -2,10 +2,10 @@
 
 import * as React from "react";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
+// import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { Icon } from "@/components/ui/Icon";
+// import { Icon } from "@/components/ui/Icon";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -24,8 +24,7 @@ export const NavigationList: React.FC<NavigationListProps> = ({
   navigationConst,
 }) => {
   const pathname = usePathname();
-  console.log(pathname);
-
+  console.log(pathname, "pathname");
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -34,15 +33,20 @@ export const NavigationList: React.FC<NavigationListProps> = ({
             <NavigationMenuItem key={`navigationMenuItem-${index}`}>
               {navigation.submenu && navigation.submenu.length ? (
                 <>
-                  <NavigationMenuTrigger>
+                  <NavigationMenuTrigger
+                    className={
+                      pathname == navigation.href ||
+                      navigation.submenu
+                        .map((item) => item.href)
+                        .filter((item) => item === pathname).length
+                        ? activePath
+                        : ""
+                    }
+                  >
                     {navigation.href ? (
                       <NavigationMenuLink
                         href={navigation.href || ""}
-                        className={cn(
-                          navigationMenuTriggerStyle(),
-                          "p-0",
-                          pathname == navigation.href ? activePath : "",
-                        )}
+                        className="p-0"
                       >
                         {navigation.title}
                       </NavigationMenuLink>

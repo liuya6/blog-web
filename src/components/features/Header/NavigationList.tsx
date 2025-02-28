@@ -2,19 +2,18 @@
 
 import * as React from "react";
 import { usePathname } from "next/navigation";
-// import Link from "next/link";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/DropdownMenu";
+import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 // import { Icon } from "@/components/ui/Icon";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/NavigationMenu";
 
 import { NavigationListProps } from "./types";
 
@@ -26,72 +25,95 @@ export const NavigationList: React.FC<NavigationListProps> = ({
   const pathname = usePathname();
   console.log(pathname, "pathname");
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        {navigationConst.map((navigation, index) => {
-          return (
-            <NavigationMenuItem key={`navigationMenuItem-${index}`}>
-              {navigation.submenu && navigation.submenu.length ? (
-                <>
-                  <NavigationMenuTrigger
-                    className={
-                      pathname == navigation.href ||
-                      navigation.submenu
-                        .map((item) => item.href)
-                        .filter((item) => item === pathname).length
-                        ? activePath
-                        : ""
-                    }
-                  >
-                    {navigation.href ? (
-                      <NavigationMenuLink
-                        href={navigation.href || ""}
-                        className="p-0"
-                      >
-                        {navigation.title}
-                      </NavigationMenuLink>
-                    ) : (
-                      navigation.title
-                    )}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                      {navigation.submenu.map((component) => (
-                        <ListItem
-                          key={component.title}
-                          title={component.title}
-                          href={component.href}
-                        />
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </>
-              ) : (
-                <NavigationMenuLink
-                  href={navigation.href || ""}
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    pathname === navigation.href ? activePath : "",
-                  )}
-                >
-                  {navigation.title}
-                </NavigationMenuLink>
+    <nav>
+      {navigationConst.map((navigation, index) => {
+        return navigation.submenu && navigation.submenu.length ? (
+          <DropdownMenu key={`navigation-${index}`}>
+            <DropdownMenuTrigger
+              asChild
+              className={cn(
+                "p-4 focus:outline-none",
+                pathname == navigation.href ||
+                  navigation.submenu
+                    .map((item) => item.href)
+                    .filter((item) => item === pathname).length
+                  ? activePath
+                  : "",
               )}
-            </NavigationMenuItem>
-          );
-        })}
-      </NavigationMenuList>
-    </NavigationMenu>
+            >
+              {navigation.href ? (
+                <Link href={navigation.href || ""}>{navigation.title}</Link>
+              ) : (
+                navigation.title
+              )}
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <ul className="flex p-6">
+                {navigation.submenu.map((component) => {
+                  return component.img ? (
+                    <ListItemImg
+                      key={component.title}
+                      title={component.title}
+                      href={component.href}
+                    />
+                  ) : (
+                    <ListItemText
+                      key={component.title}
+                      title={component.title}
+                      description={component.description}
+                      href={component.href}
+                    />
+                  );
+                })}
+              </ul>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        ) : (
+          <Link
+            key={`navigation-${index}`}
+            href={navigation.href || ""}
+            className={cn(
+              "p-4 pt-0 pb-0",
+              pathname === navigation.href ? activePath : "",
+            )}
+          >
+            {navigation.title}
+          </Link>
+        );
+      })}
+    </nav>
   );
 };
 
-const ListItem = React.forwardRef<
-  React.ComponentRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
+type ListItemProps = React.ComponentPropsWithoutRef<"a"> & {
+  title: string; // 明确 title 为必填
+  img?: string;
+  description?: string; // 新增自定义属性
+};
+const ListItemText = React.forwardRef<React.ComponentRef<"a">, ListItemProps>(
+  ({ title, description, className, children, ...props }, ref) => {
+    return (
+      <li className="text-gray-666 hover:text-primary">
+        <a
+          ref={ref}
+          className={cn("block  w-[108px] mr-2", className)}
+          {...props}
+        >
+          <div className="font-bold ">{title}</div>
+          <p className="m-1.5 ml-0 mr-0 text-[10px] opacity-50">
+            {description}
+          </p>
+        </a>
+      </li>
+    );
+  },
+);
+ListItemText.displayName = "ListItemText";
+
+const ListItemImg = React.forwardRef<React.ComponentRef<"a">, ListItemProps>(
+  ({ className, description, title, children, ...props }, ref) => {
+    return (
+      <li>
         <a
           ref={ref}
           className={cn(
@@ -100,13 +122,13 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
+          <div className="text-sm font-medium leading-none">{title}img</div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
         </a>
-      </NavigationMenuLink>
-    </li>
-  );
-});
-ListItem.displayName = "ListItem";
+      </li>
+    );
+  },
+);
+ListItemImg.displayName = "ListItemImg";

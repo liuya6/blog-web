@@ -7,17 +7,37 @@ const navigationConst: NavigationItem[] = [
     title: "笔记・栈",
     href: "/notes",
     submenu: [
-      { title: "技术笔记", href: "/notes/tech" },
-      { title: "随心所记", href: "/notes/feel" },
+      {
+        title: "技术笔记",
+        href: "/notes/tech",
+        description: "代码熔炉・工具链交响・方案星图",
+      },
+      {
+        title: "随心所记",
+        href: "/notes/feel",
+        description: "思想原野・月痕踱影・文字森林",
+      },
     ],
   },
   {
     title: "日志・記",
     href: "/log",
     submenu: [
-      { title: "博客更新", href: "/log/update" },
-      { title: "日常记事", href: "/log/day" },
-      { title: "有感而发", href: "/log/feeling" },
+      {
+        title: "博客更新",
+        href: "/log/update",
+        description: "版本星轨・功能生长纹・修复补丁集",
+      },
+      {
+        title: "日常记事",
+        href: "/log/day",
+        description: "时光切片・碎片记忆云・生活显微镜",
+      },
+      {
+        title: "有感而发",
+        href: "/log/feeling",
+        description: "灵感流星雨・情绪色谱・思维潮汐线",
+      },
     ],
   },
   {

@@ -13,11 +13,11 @@ export default {
   theme: {
     extend: {
       height: {
-        nav: "102px", // 自定义高度
+        nav: "60px", // 自定义高度
         search: "50px",
       },
       maxWidth: {
-        content: "1102px", // 使用自定义名称
+        content: "1200px", // 使用自定义名称
       },
       spacing: {
         "content-px": "4vw", // 动态边距

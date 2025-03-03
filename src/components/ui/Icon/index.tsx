@@ -1,5 +1,5 @@
 "use client";
-// components/Icon/index.tsx
+// components/Icon/BlogHeader.tsx
 import { useEffect } from "react";
 
 // 动态加载脚本

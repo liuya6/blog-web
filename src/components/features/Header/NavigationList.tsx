@@ -23,9 +23,13 @@ export const NavigationList: React.FC<NavigationListProps> = ({
   navigationConst,
 }) => {
   const pathname = usePathname();
-  console.log(pathname, "pathname");
+  console.log(navigationConst, "navigationConst");
   return (
-    <nav>
+    <nav
+      style={{
+        fontFamily: "Lxzzaw, sans-serif",
+      }}
+    >
       {navigationConst.map((navigation, index) => {
         return navigation.submenu && navigation.submenu.length ? (
           <DropdownMenu key={`navigation-${index}`}>

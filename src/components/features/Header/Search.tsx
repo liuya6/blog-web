@@ -4,8 +4,7 @@ import { cn } from "@/lib/utils";
 import { Icon } from "@/components/ui/Icon";
 
 const searchStyles = {
-  root: "flex items-center h-search w-full justify-between",
-  left: "text-sm text-gray-666",
+  root: "flex items-center h-search justify-between",
   right:
     "cursor-pointer flex items-center justify-center transition-all duration-200 h-full",
   rightIcon: "text-xl leading-none",
@@ -33,7 +32,6 @@ export function Search() {
 
   return (
     <div className={searchStyles.root}>
-      <span className={searchStyles.left}>兴趣指引方向，会玩才会学</span>
       <div
         className={cn(
           searchStyles.right,

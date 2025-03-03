@@ -1,0 +1,4 @@
+.header-box-shadow {
+    @apply bg-white/50;
+    box-shadow: 0 5px 6px -5px rgba(133, 133, 133, .6);
+}

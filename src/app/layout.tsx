@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import "@/styles/icon.css";
 
-import { BlogHeader } from "../components/features/Header";
+import { BlogHeader } from "@/components/features/Header";
+import { BlogFooter } from "@/components/features/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +19,8 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[url(/img/background.png)] bg-fixed h-[2000px]">
         <BlogHeader />
-        <div className="mx-auto max-w-content ">{children}</div>
+        <div className="mx-auto max-w-content">{children}</div>
+        <BlogFooter />
       </body>
     </html>
   );

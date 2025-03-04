@@ -6,5 +6,5 @@ export type NavigationItem = {
 };
 
 export interface NavigationListProps {
-  navigationConst: NavigationItem[]; // 根据实际数据结构调整
+  navigationItem: NavigationItem;
 }

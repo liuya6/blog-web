@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[url(/img/background.png)] bg-fixed h-[2000px]">
         <BlogHeader />
-        <div className="mx-auto max-w-content">{children}</div>
+        <main className="mx-auto max-w-content">{children}</main>
         <BlogFooter />
       </body>
     </html>

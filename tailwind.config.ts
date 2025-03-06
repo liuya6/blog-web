@@ -14,7 +14,6 @@ export default {
     extend: {
       height: {
         nav: "60px", // 自定义高度
-        search: "50px",
       },
       maxWidth: {
         content: "1200px", // 使用自定义名称
@@ -63,9 +62,27 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
-        gray: {
-          666: "#666666",
+      },
+      keyframes: {
+        "header-nav-sub-in": {
+          "0%": { transform: "translateY(5px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
         },
+        "slide-in": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        // 自定义旋转动画
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+      },
+      animation: {
+        // 语法：'动画类名': 'keyframes名称 时长 缓动函数 迭代次数 延迟'
+        "slide-in": "slide-in 0.5s ease-out",
+        "spin-slow": "spin-slow 3s linear infinite",
+        "header-nav-sub-in": "header-nav-sub-in 0.25s ease-out",
       },
       borderRadius: {
         lg: "var(--radius)",

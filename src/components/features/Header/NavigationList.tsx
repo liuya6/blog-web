@@ -1,101 +1,108 @@
 "use client";
 import * as React from "react";
 import Link from "next/link";
-// import { usePathname } from "next/navigation";
+import { Icon } from "@/components/ui/Icon";
+import { usePathname } from "next/navigation";
 
-// import { cn } from "@/lib/utils";
-// import { Icon } from "@/components/ui/Icon";
+import { cn } from "@/lib/utils";
 
 import { NavigationItem, NavigationListProps } from "./types";
-
-// const activePath = "text-primary";
 
 export const NavigationList: React.FC<NavigationListProps> = ({
   navigationItem,
 }) => {
-  console.log(navigationItem);
-  // const pathname = usePathname();
+  const pathname = usePathname();
   return (
-    <li>
+    <li className="h-full">
       {navigationItem.submenu && navigationItem.submenu.length ? (
-        <ListItemHasSub {...navigationItem} />
+        <ListItemHasSub {...navigationItem} pathname={pathname} />
       ) : (
-        <ListItemText {...navigationItem} />
+        <ListItemText {...navigationItem} pathname={pathname} />
       )}
     </li>
   );
 };
 
-const ListItemText: React.FC<NavigationItem> = ({ title, href, ...props }) => {
+type ListItemProps = NavigationItem & {
+  pathname: string;
+};
+const ListItemText: React.FC<ListItemProps> = ({
+  title,
+  href,
+  icon,
+  pathname,
+}) => {
   return (
-    <div className="text-base ml-3.5 hover:text-primary">
+    <div
+      className={cn(
+        "text-base ml-5 hover:text-primary h-full flex items-center justify-center",
+        pathname === href && "text-primary",
+      )}
+    >
+      <Icon name={icon} className="mr-2 mb-[2px]" />
       {href ? <Link href={href}>{title}</Link> : title}
     </div>
   );
 };
 ListItemText.displayName = "ListItemText";
 
-const ListItemHasSub: React.FC<NavigationItem> = ({
+const ListItemHasSub: React.FC<ListItemProps> = ({
   title,
   href,
-  ...props
+  submenu,
+  icon,
+  pathname,
 }) => {
+  const isActive = (href?: string, submenu?: NavigationItem[]) => {
+    if (submenu && submenu.length) {
+      return submenu.map((item) => item.href).includes(pathname);
+    }
+
+    return href === pathname;
+  };
+
   return (
-    <div>
-      <div className="text-base ml-3.5 hover:text-primary">
-        {href ? <Link href={href}>{title}</Link> : title}
-      </div>
+    <div className="text-base ml-5 relative group h-full flex items-center justify-center">
+      <Icon name={icon} className="mr-1 mb-[2px]" />
+      {href ? (
+        <Link
+          className={cn(
+            "hover:text-primary",
+            isActive(href, submenu) && "text-primary",
+          )}
+          href={href}
+        >
+          {title}
+        </Link>
+      ) : (
+        <span
+          className={cn(
+            "hover:text-primary cursor-pointer",
+            isActive(href, submenu) && "text-primary",
+          )}
+        >
+          {title}
+        </span>
+      )}
+      <dl className="absolute top-full text-nowrap navigation-sub-box-shadow rounded-xl p-1.5 bg-white hidden opacity-0 transition-all group-hover:flex group-hover:opacity-100 animate-header-nav-sub-in">
+        {submenu?.map((item: NavigationItem, index) => {
+          return (
+            <dd
+              key={index}
+              className={cn(
+                "flex items-center rounded cursor-pointer header-nav-sub px-4",
+                isActive(item.href, item.submenu) && "text-primary",
+              )}
+            >
+              <Icon name={item.icon} className="mr-2 mb-[2px]" />
+              <Link className="block leading-[44px]  " href={item.href || ""}>
+                {item.title}
+              </Link>
+            </dd>
+          );
+        })}
+      </dl>
     </div>
   );
 };
 ListItemHasSub.displayName = "ListItemHasSub";
-
-// type ListItemProps = React.ComponentPropsWithoutRef<"a"> & {
-//   title: string; // 明确 title 为必填
-//   img?: string;
-//   description?: string; // 新增自定义属性
-// };
-// const ListItemText = React.forwardRef<React.ComponentRef<"a">, ListItemProps>(
-//   ({ title, description, className, children, href, ...props }, ref) => {
-//     return (
-//       <li className="text-gray-666 hover:text-primary">
-//         <Link
-//           href={href}
-//           ref={ref}
-//           className={cn("block  w-[108px] mr-2", className)}
-//           {...props}
-//         >
-//           <div className="font-bold ">{title}</div>
-//           <p className="m-1.5 ml-0 mr-0 text-[10px] opacity-50">
-//             {description}
-//           </p>
-//         </Link>
-//       </li>
-//     );
-//   },
-// );
-// ListItemText.displayName = "ListItemText";
-
-// const ListItemImg = React.forwardRef<React.ComponentRef<"a">, ListItemProps>(
-//   ({ className, description, title, href, children, ...props }, ref) => {
-//     return (
-//       <li>
-//         <Link
-//           href={href}
-//           ref={ref}
-//           className={cn(
-//             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-//             className,
-//           )}
-//           {...props}
-//         >
-//           <div className="text-sm font-medium leading-none">{title}img</div>
-//           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-//             {children}
-//           </p>
-//         </Link>
-//       </li>
-//     );
-//   },
-// );
-// ListItemImg.displayName = "ListItemImg";

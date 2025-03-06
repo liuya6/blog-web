@@ -6,11 +6,95 @@
   "description": "",
   "glyphs": [
     {
-      "icon_id": "6186654",
+      "icon_id": "43526166",
       "name": "搜索",
-      "font_class": "sousuo",
-      "unicode": "e662",
-      "unicode_decimal": 58978
+      "font_class": "search",
+      "unicode": "ed61",
+      "unicode_decimal": 60769
+    },
+    {
+      "icon_id": "3822754",
+      "name": "手记",
+      "font_class": "notes",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "3853677",
+      "name": "游戏",
+      "font_class": "game",
+      "unicode": "eb5c",
+      "unicode_decimal": 60252
+    },
+    {
+      "icon_id": "4507864",
+      "name": "更多",
+      "font_class": "more",
+      "unicode": "e66d",
+      "unicode_decimal": 58989
+    },
+    {
+      "icon_id": "6899563",
+      "name": "首页",
+      "font_class": "home",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "11686702",
+      "name": "一言",
+      "font_class": "says",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "23949541",
+      "name": "影视",
+      "font_class": "movie",
+      "unicode": "ec69",
+      "unicode_decimal": 60521
+    },
+    {
+      "icon_id": "29025278",
+      "name": "文稿",
+      "font_class": "essay",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "29312284",
+      "name": "留言板",
+      "font_class": "guestbook",
+      "unicode": "ed60",
+      "unicode_decimal": 60768
+    },
+    {
+      "icon_id": "37871153",
+      "name": "编程",
+      "font_class": "programming",
+      "unicode": "e696",
+      "unicode_decimal": 59030
+    },
+    {
+      "icon_id": "38125432",
+      "name": "学习",
+      "font_class": "study",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "38167598",
+      "name": "动态",
+      "font_class": "updates",
+      "unicode": "e6a8",
+      "unicode_decimal": 59048
+    },
+    {
+      "icon_id": "39669841",
+      "name": "音乐",
+      "font_class": "music",
+      "unicode": "e73a",
+      "unicode_decimal": 59194
     }
   ]
 }

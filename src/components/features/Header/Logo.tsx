@@ -14,7 +14,7 @@ export function Logo() {
           priority
         />
       </div>
-      <div className="h-[20px] ml-2 font-bold">LYQ的博客</div>
+      <div className="h-[60px] leading-[60px] ml-2 font-bold">LYQ的博客</div>
     </Link>
   );
 }

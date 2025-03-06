@@ -2,3 +2,12 @@
     @apply bg-white/50;
     box-shadow: 0 5px 6px -5px rgba(133, 133, 133, .6);
 }
+
+.navigation-sub-box-shadow {
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-nav-sub:hover{
+    background: var(--header-nav-sub-bg);
+    color: #FFF;
+}

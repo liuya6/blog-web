@@ -1,7 +1,7 @@
 export type NavigationItem = {
   title: string;
+  icon: string;
   href?: string;
-  icon?: string;
   submenu?: (NavigationItem & { img?: string; description?: string })[];
 };
 

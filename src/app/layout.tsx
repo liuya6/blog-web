@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-[url(/img/background.png)] bg-fixed h-[2000px]">
+      <body className="bg-[url(/img/background.png)] bg-fixed min-h-screen">
         <BlogHeader />
-        <main className="mx-auto max-w-content">{children}</main>
+        <main className="mx-auto max-w-content transform-cpu">{children}</main>
         <BlogFooter />
       </body>
     </html>

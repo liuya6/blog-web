@@ -1,61 +1,88 @@
 "use client";
+
+import * as React from "react";
+import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
-import { cn } from "@/lib/utils";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/Dialog";
 import { Icon } from "@/components/ui/Icon";
 
-const searchStyles = {
-  root: "flex items-center h-search justify-between",
-  right:
-    "cursor-pointer flex items-center justify-center transition-all duration-200 h-full",
-  rightIcon: "text-xl leading-none",
-  rightInput: "focus:outline-none text-gray-666 w-full pl-2",
-};
+import { cn } from "@/lib/utils";
 
 export function Search() {
-  const [isInputVisible, setIsInputVisible] = useState(false);
-
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  // 自动聚焦逻辑
-  useEffect(() => {
-    if (isInputVisible && inputRef.current) {
-      // 添加小延迟确保动画完成
-      setTimeout(() => {
-        inputRef.current?.focus();
-      });
-    }
-  }, [isInputVisible]);
-
-  const handleToggleInput = () => {
-    setIsInputVisible(!isInputVisible);
-  };
-
   return (
-    <div className={searchStyles.root}>
-      <div
-        className={cn(
-          searchStyles.right,
-          isInputVisible
-            ? "w-[175px] border-t-2 border-primary"
-            : "w-[20px] border-0",
-        )}
-      >
-        <div onClick={() => setIsInputVisible(true)}>
-          <Icon name="sousuo" className={searchStyles.rightIcon}></Icon>
+    <Dialog>
+      <DialogTrigger>
+        <div className="flex justify-center items-center h-full hover:text-primary">
+          <Icon name="search" className="mr-1 mb-1" />
+          搜索
         </div>
-        <input
-          ref={inputRef}
-          className={cn(
-            searchStyles.rightInput,
-            isInputVisible ? "" : "hidden",
-          )}
-          // autoFocus={true}
-          onBlur={() => setIsInputVisible(false)}
-          type="text"
-          placeholder="search"
-          autoFocus={isInputVisible}
-        />
-      </div>
-    </div>
+      </DialogTrigger>
+      <DialogContent className="top-0 md:top-[10%]">
+        <DialogHeader>
+          <DialogTitle>
+            <p className="text-secondary">搜索</p>
+          </DialogTitle>
+          <DialogDescription asChild>
+            <div>
+              <div className="border rounded-full border-secondary leading-8 pl-3 mt-2">
+                <input
+                  type="text"
+                  placeholder="搜索文章"
+                  className="w-11/12 cursor-text"
+                />
+              </div>
+              <MHr />
+              <ul className="overflow-y-auto">
+                {Array(10)
+                  .fill(0)
+                  .map((_, i) => {
+                    return <SearchItem index={i + 1} key={i} />;
+                  })}
+              </ul>
+              <MHr />
+              <div>共找到10篇文章</div>
+            </div>
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
   );
 }
+
+const MHr = () => {
+  return (
+    <div className="relative my-3">
+      <p className="border-2 border-dashed border-secondary" />
+    </div>
+  );
+};
+
+type SearchItemProps = {
+  title?: string;
+  index: number;
+};
+const SearchItem: React.FC<SearchItemProps> = (searchItem) => {
+  return (
+    <li className="flex my-1">
+      <div className="w-1/12 text-secondary">{searchItem?.index}.</div>
+      <Link href="/" className="hover:text-secondary">
+        <h5 className="font-bold text-secondary-foreground text-left">
+          Hello World
+        </h5>
+        <p className="text-xs leading-5 text-left line-clamp-3">
+          了1Panel，用Memos默认配置搭建测试了下，首页加载任然特别慢，打开网络活动才看到首页加载了一个封装好的
+          gomark
+          库，文件比较大平均加载耗时约15ms左右。习惯性的点开了大佬们的博客，看到木木dalao的版本任然停留在0.18....
+        </p>
+      </Link>
+    </li>
+  );
+};
+SearchItem.displayName = "SearchItem";

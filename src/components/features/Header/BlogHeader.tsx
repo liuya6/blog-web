@@ -30,9 +30,12 @@ export default function BlogHeader() {
 
   return (
     <header
-      className={cn("sticky top-0 z-50 w-full", !isTop && "header-box-shadow")}
+      className={cn(
+        "sticky top-0 z-50 w-full h-[60px]",
+        !isTop && "header-box-shadow",
+      )}
     >
-      <div className="flex justify-between items-center w-full pl-9 pr-9 relative">
+      <div className="flex justify-between items-center w-full pl-9 pr-9">
         <Logo />
         <Nav />
         <Search />

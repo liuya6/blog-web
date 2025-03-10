@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+// import { useState, useRef, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -39,7 +39,7 @@ export function Search() {
                 />
               </div>
               <MHr />
-              <ul className="overflow-y-auto">
+              <ul className="overflow-y-auto max-h-[calc(80vh-180px)]">
                 {Array(10)
                   .fill(0)
                   .map((_, i) => {
@@ -77,7 +77,7 @@ const SearchItem: React.FC<SearchItemProps> = (searchItem) => {
           Hello World
         </h5>
         <p className="text-xs leading-5 text-left line-clamp-3">
-          了1Panel，用Memos默认配置搭建测试了下，首页加载任然特别慢，打开网络活动才看到首页加载了一个封装好的
+          了1Panel，用Memos默认配置搭建测试了下，首页加载仍然特别慢，打开网络活动才看到首页加载了一个封装好的
           gomark
           库，文件比较大平均加载耗时约15ms左右。习惯性的点开了大佬们的博客，看到木木dalao的版本任然停留在0.18....
         </p>

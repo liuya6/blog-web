@@ -4,6 +4,7 @@ import "@/styles/icon.css";
 
 import { BlogHeader } from "@/components/features/Header";
 import { BlogFooter } from "@/components/features/Footer";
+import { ProfileCom } from "@/components/features/Profile";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +20,12 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[url(/img/background.png)] bg-fixed min-h-screen">
         <BlogHeader />
-        <main className="mx-auto max-w-content transform-cpu">{children}</main>
+        <main className="mx-auto max-w-content transform-cpu flex justify-between">
+          <div className="min-h-screen">{children}</div>
+          <div className="w-1/4 pl-[5%]">
+            <ProfileCom />
+          </div>
+        </main>
         <BlogFooter />
       </body>
     </html>

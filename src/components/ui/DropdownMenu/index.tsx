@@ -1,2 +1,1 @@
-import { DropdownMenu } from "./DropdowmMenu";
-export { DropdownMenu };
+export * from "./DropdowmMenu";

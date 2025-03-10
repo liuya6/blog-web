@@ -21,6 +21,10 @@ export default {
       spacing: {
         "content-px": "4vw", // 动态边距
       },
+      boxShadow: {
+        "card-box-shadow": "var(--card-box-shadow)",
+        "card-hover-shadow": "var(--card-hover-shadow)",
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

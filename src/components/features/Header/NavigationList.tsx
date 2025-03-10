@@ -84,10 +84,11 @@ const ListItemHasSub: React.FC<ListItemProps> = ({
           {title}
         </span>
       )}
-      <dl className="absolute top-full text-nowrap navigation-sub-box-shadow rounded-xl p-1.5 bg-white hidden opacity-0 transition-all group-hover:flex group-hover:opacity-100 animate-header-nav-sub-in">
+      <div className="absolute top-full text-nowrap navigation-sub-box-shadow rounded-xl p-1.5 bg-white hidden opacity-0 transition-all group-hover:flex group-hover:opacity-100 animate-header-nav-sub-in">
         {submenu?.map((item: NavigationItem, index) => {
           return (
-            <dd
+            <Link
+              href={item.href || ""}
               key={index}
               className={cn(
                 "flex items-center rounded cursor-pointer header-nav-sub px-4",
@@ -95,13 +96,11 @@ const ListItemHasSub: React.FC<ListItemProps> = ({
               )}
             >
               <Icon name={item.icon} className="mr-2 mb-[2px]" />
-              <Link className="block leading-[44px]  " href={item.href || ""}>
-                {item.title}
-              </Link>
-            </dd>
+              <span className="leading-[44px]">{item.title}</span>
+            </Link>
           );
         })}
-      </dl>
+      </div>
     </div>
   );
 };

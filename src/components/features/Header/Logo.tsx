@@ -10,7 +10,7 @@ export function Logo() {
           alt="lyq的博客"
           fill
           style={{ objectFit: "cover" }}
-          sizes="100vw"
+          sizes="cover"
           priority
         />
       </div>

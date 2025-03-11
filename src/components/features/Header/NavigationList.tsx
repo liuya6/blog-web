@@ -1,5 +1,5 @@
 "use client";
-import * as React from "react";
+import React from "react";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { usePathname } from "next/navigation";
@@ -39,7 +39,7 @@ const ListItemText: React.FC<ListItemProps> = ({
         pathname === href && "text-primary",
       )}
     >
-      <Icon name={icon} className="mr-2 mb-[2px]" />
+      <Icon name={icon} className="mr-2 mb-1" />
       {href ? <Link href={href}>{title}</Link> : title}
     </div>
   );
@@ -63,7 +63,7 @@ const ListItemHasSub: React.FC<ListItemProps> = ({
 
   return (
     <div className="text-base ml-5 relative group h-full flex items-center justify-center">
-      <Icon name={icon} className="mr-1 mb-[2px]" />
+      <Icon name={icon} className="mr-1 mb-1" />
       {href ? (
         <Link
           className={cn(
@@ -95,7 +95,7 @@ const ListItemHasSub: React.FC<ListItemProps> = ({
                 isActive(item.href, item.submenu) && "text-primary",
               )}
             >
-              <Icon name={item.icon} className="mr-2 mb-[2px]" />
+              <Icon name={item.icon} className="mr-2 mb-1" />
               <span className="leading-[44px]">{item.title}</span>
             </Link>
           );

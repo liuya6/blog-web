@@ -6,6 +6,167 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "17779365",
+      "name": "访问次数",
+      "font_class": "visits",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "18151173",
+      "name": "文章总数",
+      "font_class": "article-total",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "20417726",
+      "name": "更新",
+      "font_class": "update",
+      "unicode": "f308",
+      "unicode_decimal": 62216
+    },
+    {
+      "icon_id": "26485903",
+      "name": "访客",
+      "font_class": "visitor",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "4937000",
+      "name": "github-fill",
+      "font_class": "github",
+      "unicode": "e885",
+      "unicode_decimal": 59525
+    },
+    {
+      "icon_id": "595349",
+      "name": "评论",
+      "font_class": "comment",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "10156131",
+      "name": "点赞",
+      "font_class": "likes",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "42194642",
+      "name": "scissors-fill",
+      "font_class": "scissors",
+      "unicode": "e76d",
+      "unicode_decimal": 59245
+    },
+    {
+      "icon_id": "6102940",
+      "name": "图片",
+      "font_class": "image",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "23569365",
+      "name": "emoji",
+      "font_class": "emoji",
+      "unicode": "e7ab",
+      "unicode_decimal": 59307
+    },
+    {
+      "icon_id": "4275559",
+      "name": "评论",
+      "font_class": "comment-list",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "41628954",
+      "name": "相关推荐",
+      "font_class": "recommend",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "3718738",
+      "name": "分类",
+      "font_class": "classify",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "25931657",
+      "name": "日历",
+      "font_class": "rili",
+      "unicode": "e793",
+      "unicode_decimal": 59283
+    },
+    {
+      "icon_id": "1550740",
+      "name": "最新文章",
+      "font_class": "article",
+      "unicode": "e978",
+      "unicode_decimal": 59768
+    },
+    {
+      "icon_id": "2039953",
+      "name": "邮箱",
+      "font_class": "email",
+      "unicode": "e68b",
+      "unicode_decimal": 59019
+    },
+    {
+      "icon_id": "3820308",
+      "name": "标签",
+      "font_class": "tag",
+      "unicode": "e724",
+      "unicode_decimal": 59172
+    },
+    {
+      "icon_id": "4381304",
+      "name": "公告",
+      "font_class": "notice",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "18896121",
+      "name": "网易云",
+      "font_class": "wangyiyun",
+      "unicode": "e6d1",
+      "unicode_decimal": 59089
+    },
+    {
+      "icon_id": "28125036",
+      "name": "直通车工具",
+      "font_class": "train",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "35687296",
+      "name": "首页-信息统计",
+      "font_class": "statistics",
+      "unicode": "ea31",
+      "unicode_decimal": 59953
+    },
+    {
+      "icon_id": "38767606",
+      "name": "Steam2",
+      "font_class": "steam",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "42232290",
+      "name": "pushpin-fill",
+      "font_class": "mark",
+      "unicode": "e867",
+      "unicode_decimal": 59495
+    },
+    {
       "icon_id": "43526166",
       "name": "搜索",
       "font_class": "search",

@@ -24,22 +24,22 @@ export const linkList = [
   // },
   {
     title: "steam",
-    icon: "",
-    href: "/",
+    icon: "steam",
+    href: "https://steamcommunity.com/profiles/76561198168445710/",
   },
   {
     title: "网易云音乐",
-    icon: "",
-    href: "/",
+    icon: "wangyiyun",
+    href: "https://music.163.com/#/user/home?id=251620686",
   },
   {
     title: "邮箱",
-    icon: "",
-    href: "/",
+    icon: "email",
+    href: "mailto:liu15107128281@gmail.com",
   },
   {
     title: "随机地址",
-    icon: "",
+    icon: "train",
     href: "/",
   },
 ];

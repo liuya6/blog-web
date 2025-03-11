@@ -9,9 +9,7 @@ import { cn } from "@/lib/utils";
 import "./header.css";
 
 export default function BlogHeader() {
-  const [isTop, setTop] = useState(() =>
-    typeof window !== "undefined" ? window.scrollY === 0 : true,
-  );
+  const [isTop, setTop] = useState(true);
 
   useEffect(() => {
     const handleScroll = throttle(() => {
@@ -19,6 +17,9 @@ export default function BlogHeader() {
         setTop(window.scrollY === 0);
       });
     }, 100);
+
+    // 初始化时同步一次滚动状态
+    setTop(window.scrollY === 0);
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();

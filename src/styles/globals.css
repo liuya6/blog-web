@@ -17,7 +17,7 @@
     --primary-foreground: 0 0% 98%;
     /*--secondary: 0 0% 96.1%;*/
     --secondary: 203 87% 62%;
-    --secondary-foreground: 0 0% 9%;
+    --secondary-foreground: 0deg 0% 52%;
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
     --accent: 0 0% 96.1%;
@@ -92,4 +92,5 @@ input:focus { outline: none; }
 
 html, body {
   font-family: 'Lxzzaw', sans-serif;
+  @apply text-base
 }

@@ -2,12 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Card } from "@/components/ui/Card";
+import { Icon } from "@/components/ui/Icon";
 
 import { profileTag, linkList } from "./constants";
 
 export function ProfileCom() {
   return (
-    <Card>
+    <Card className="mb-5">
       <div className="flex items-center justify-center w-full">
         <Image
           src="/img/profile.png"
@@ -27,11 +28,18 @@ export function ProfileCom() {
           </li>
         ))}
       </ul>
-      <div>Github</div>
-      <ul>
+      <Link
+        href="https://github.com/liuya6"
+        target="_blank"
+        className="flex h-8 justify-center items-center bg-primary text-white rounded-full mt-3.5"
+      >
+        <Icon name="github" className="mr-1 mb-1" />
+        <span>Github</span>
+      </Link>
+      <ul className="flex items-center justify-between w-4/5 m-auto mt-5 ">
         {linkList.map((link, index) => (
-          <Link href={link.href} key={`link+${index}`}>
-            {link.title}
+          <Link href={link.href} target="_blank" key={`link+${index}`}>
+            <Icon name={link.icon} size="20" />
           </Link>
         ))}
       </ul>

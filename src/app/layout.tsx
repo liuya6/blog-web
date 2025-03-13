@@ -26,14 +26,14 @@ export default function RootLayout({
       <body className="bg-[url(/img/background.png)] bg-fixed min-h-screen">
         <BlogHeader />
         <main className="mx-auto max-w-content transform-cpu flex justify-between py-10">
-          <div className="min-h-screen">{children}</div>
-          <div className="w-1/4 pl-[5%]">
+          <section className="min-h-screen flex-1">{children}</section>
+          <aside className="w-1/4 pl-[5%]">
             <ProfileCom />
             <Notices />
             <Article />
             <ArticleTag />
             <Statistics />
-          </div>
+          </aside>
         </main>
         <BlogFooter />
       </body>

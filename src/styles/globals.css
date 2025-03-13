@@ -94,3 +94,7 @@ html, body {
   font-family: 'Lxzzaw', sans-serif;
   @apply text-base
 }
+
+a:active,button:active,.btn:active {
+  transform: translate(1px, 1px);
+}

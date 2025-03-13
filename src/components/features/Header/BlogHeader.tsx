@@ -36,7 +36,7 @@ export default function BlogHeader() {
         !isTop && "header-box-shadow",
       )}
     >
-      <div className="flex justify-between items-center w-full pl-9 pr-9">
+      <div className="flex justify-between items-center max-w-content m-auto">
         <Logo />
         <Nav />
         <Search />

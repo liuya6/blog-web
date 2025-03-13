@@ -35,11 +35,11 @@ const ListItemText: React.FC<ListItemProps> = ({
   return (
     <div
       className={cn(
-        "text-base ml-5 hover:text-primary h-full flex items-center justify-center",
+        "text-base ml-5 hover:text-primary h-full flex items-center justify-center btn",
         pathname === href && "text-primary",
       )}
     >
-      <Icon name={icon} className="mr-2 mb-1" />
+      <Icon name={icon} className="mr-1 mb-1" />
       {href ? <Link href={href}>{title}</Link> : title}
     </div>
   );
@@ -54,15 +54,19 @@ const ListItemHasSub: React.FC<ListItemProps> = ({
   pathname,
 }) => {
   const isActive = (href?: string, submenu?: NavigationItem[]) => {
+    let isActiveTmp = href === pathname;
+
     if (submenu && submenu.length) {
-      return submenu.map((item) => item.href).includes(pathname);
+      isActiveTmp =
+        submenu.map((item) => item.href).includes(pathname) ||
+        href === pathname;
     }
 
-    return href === pathname;
+    return isActiveTmp;
   };
 
   return (
-    <div className="text-base ml-5 relative group h-full flex items-center justify-center">
+    <div className="text-base ml-5 relative group h-full flex items-center justify-center btn">
       <Icon name={icon} className="mr-1 mb-1" />
       {href ? (
         <Link
@@ -95,7 +99,7 @@ const ListItemHasSub: React.FC<ListItemProps> = ({
                 isActive(item.href, item.submenu) && "text-primary",
               )}
             >
-              <Icon name={item.icon} className="mr-2 mb-1" />
+              <Icon name={item.icon} className="mr-1.5 mb-1" />
               <span className="leading-[44px]">{item.title}</span>
             </Link>
           );
